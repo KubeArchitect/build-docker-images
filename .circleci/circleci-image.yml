@@ -19,8 +19,8 @@ jobs:
     docker:
       - image: cimg/base:stable
         auth:
-          username: $DOCKER_HUB_USER
-          password: $DOCKER_HUB_PASSWORD
+          username: $DOCKERHUB_USERNAME
+          password: $DOCKERHUB_PASSWORD 
     environment:
       DOCKER_VERSION_TAG: v1.0.0
       DOCKER_IMAGE_NAME: circleci-pnpm
@@ -46,3 +46,5 @@ workflows:
   build-circleci-node-image-workflow:
     jobs:
       - build-circleci-node-image
+          context:
+            - main-context
