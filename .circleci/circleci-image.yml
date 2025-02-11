@@ -45,6 +45,6 @@ jobs:
 workflows:
   build-circleci-node-image-workflow:
     jobs:
-      - build-circleci-node-image
+      - build-circleci-node-image:
           context:
             - main-context
