@@ -22,4 +22,3 @@ workflows:
   no-update-workflow:
     jobs:
       - no-updates:
-          resource_class: kubearchitect/hetzner-ubuntu-kind
