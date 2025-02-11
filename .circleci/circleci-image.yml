@@ -18,7 +18,6 @@ jobs:
         auth:
           username: $DOCKERHUB_USERNAME
           password: $DOCKERHUB_PASSWORD
-    resource_class: kubearchitect/hetzner-ubuntu-kind
     environment:
       DOCKER_VERSION_TAG: v1.0.0
       DOCKER_IMAGE_NAME: circleci-pnpm
