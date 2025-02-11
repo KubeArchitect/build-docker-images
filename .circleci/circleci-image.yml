@@ -22,7 +22,7 @@ jobs:
           username: $DOCKER_HUB_USER
           password: $DOCKER_HUB_PASSWORD
     environment:
-      DOCKER_VERSION_TAG: v0.0.1
+      DOCKER_VERSION_TAG: v1.0.0
       DOCKER_IMAGE_NAME: circleci-pnpm
       GITHUB_USERNAME: relativesure
     steps:
