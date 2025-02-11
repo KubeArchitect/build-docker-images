@@ -4,9 +4,6 @@ setup: true
 
 # define the parameters from the setup config.
 parameters:
-  megalinter:
-    type: boolean
-    default: false
   build-fedora-image:
     type: boolean
     default: false
@@ -16,9 +13,16 @@ parameters:
 
 orbs:
   path-filtering: circleci/path-filtering@1.2.0
+  megalinter: relativesure/megalinter@2.0.0
+
 workflows:
   generate-config:
     jobs:
+      - megalinter/run:
+          resource_class: relativesure/hetzner-ubuntu-kind
+          context:
+            - main-context
+
       - path-filtering/filter:
           # Examples: https://github.com/CircleCI-Public/dynamic-configuration-examples/tree/generate-config-file-main
           base-revision: master
@@ -26,6 +30,7 @@ workflows:
           resource_class: large
           tag: "3.9"
           mapping: |
-            .* megalinter true .circleci/megalinter.yml
             gh-actions/.* build-fedora-image true .circleci/fedora-actions.yml
+            .circleci/fedora-actions.yml build-fedora-image true .circleci/fedora-actions.yml
             node/.* build-circleci-node-image true .circleci/circleci-image.yml
+            .circleci/circleci-image.yml build-circleci-node-image true .circleci/circleci-image.yml
