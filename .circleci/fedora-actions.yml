@@ -19,8 +19,8 @@ jobs:
     docker:
       - image: cimg/base:stable
         auth:
-          username: $DOCKER_HUB_USER
-          password: $DOCKER_HUB_PASSWORD
+          username: $DOCKERHUB_USERNAME
+          password: $DOCKERHUB_PASSWORD
     environment:
       DOCKER_VERSION_TAG: v0.0.1
       DOCKER_IMAGE_NAME: fedora-actions
@@ -45,4 +45,5 @@ jobs:
 workflows:
   build-fedora-image-workflow:
     jobs:
-      - build-fedora-image
+      - build-fedora-image:
+          context: main-context
