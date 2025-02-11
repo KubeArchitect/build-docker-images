@@ -43,5 +43,6 @@ workflows:
   build-circleci-node-image-workflow:
     jobs:
       - build-circleci-node-image:
+          resource_class: kubearchitect/hetzner-ubuntu-kind
           context:
             - main-context

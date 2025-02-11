@@ -43,4 +43,5 @@ workflows:
   build-fedora-image-workflow:
     jobs:
       - build-fedora-image:
+          resource_class: kubearchitect/hetzner-ubuntu-kind
           context: main-context

@@ -19,7 +19,7 @@ workflows:
   generate-config:
     jobs:
       - megalinter/run:
-          resource_class: relativesure/hetzner-ubuntu-kind
+          resource_class: kubearchitect/hetzner-ubuntu-kind
           context:
             - main-context
 
@@ -27,7 +27,7 @@ workflows:
           # Examples: https://github.com/CircleCI-Public/dynamic-configuration-examples/tree/generate-config-file-main
           base-revision: master
           config-path: .circleci/no-updates.yml
-          resource_class: large
+          resource_class: kubearchitect/hetzner-ubuntu-kind
           tag: "3.9"
           mapping: |
             gh-actions/.* build-fedora-image true .circleci/fedora-actions.yml
