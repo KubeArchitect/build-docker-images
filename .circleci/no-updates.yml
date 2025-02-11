@@ -14,6 +14,7 @@ jobs:
   no-updates:
     docker:
       - image: cimg/base:stable
+    resource_class: kubearchitect/hetzner-ubuntu-kind
     steps:
       - run: echo "No updates have been made"
 

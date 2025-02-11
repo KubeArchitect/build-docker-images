@@ -17,7 +17,8 @@ jobs:
       - image: cimg/base:stable
         auth:
           username: $DOCKERHUB_USERNAME
-          password: $DOCKERHUB_PASSWORD 
+          password: $DOCKERHUB_PASSWORD
+    resource_class: kubearchitect/hetzner-ubuntu-kind
     environment:
       DOCKER_VERSION_TAG: v1.0.0
       DOCKER_IMAGE_NAME: circleci-pnpm
@@ -43,6 +44,5 @@ workflows:
   build-circleci-node-image-workflow:
     jobs:
       - build-circleci-node-image:
-          resource_class: kubearchitect/hetzner-ubuntu-kind
           context:
             - main-context
