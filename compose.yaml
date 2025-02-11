@@ -1,0 +1,6 @@
+# WIP: This is a work in progress and not yet functional
+services:
+  gh-actions:
+    restart: on-failure
+    build: ./gh-actions
+    hostname: gh-actions

@@ -10,9 +10,12 @@ parameters:
   build-fedora-image:
     type: boolean
     default: false
+  build-circleci-node-image:
+    type: boolean
+    default: false
 
 orbs:
-  path-filtering: circleci/path-filtering@1.1.0
+  path-filtering: circleci/path-filtering@1.2.0
 workflows:
   generate-config:
     jobs:
@@ -24,4 +27,5 @@ workflows:
           tag: "3.9"
           mapping: |
             .* megalinter true .circleci/megalinter.yml
-            docker/fedora/.* build-fedora-image true .circleci/fedora-actions.yml
+            gh-actions/.* build-fedora-image true .circleci/fedora-actions.yml
+            node/.* build-circleci-node-image true .circleci/circleci-image.yml

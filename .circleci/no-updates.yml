@@ -9,6 +9,9 @@ parameters:
   build-fedora-image:
     type: boolean
     default: false
+  build-circleci-node-image:
+    type: boolean
+    default: false
 
 jobs:
   no-updates:
