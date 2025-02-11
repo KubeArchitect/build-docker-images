@@ -13,7 +13,7 @@ parameters:
 
 orbs:
   path-filtering: circleci/path-filtering@1.2.0
-  megalinter: relativesure/megalinter@2.0.0
+  megalinter: relativesure/megalinter@2.0.1
 
 workflows:
   generate-config:
