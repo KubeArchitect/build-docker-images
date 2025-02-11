@@ -22,12 +22,14 @@ workflows:
           name: run-ml
           resource_class: kubearchitect/hetzner-ubuntu-kind
           flavor: ci_light
+          persist_megalinter_reports: true
+          run_git_operations: true
           context:
             - main-context
 
       - path-filtering/filter:
           # Examples: https://github.com/CircleCI-Public/dynamic-configuration-examples/tree/generate-config-file-main
-          base-revision: master
+          base-revision: main
           config-path: .circleci/no-updates.yml
           resource_class: kubearchitect/hetzner-ubuntu-kind
           tag: "3.9"
