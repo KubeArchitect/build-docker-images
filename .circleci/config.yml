@@ -21,6 +21,7 @@ workflows:
       - megalinter/run:
           name: run-ml
           resource_class: kubearchitect/hetzner-ubuntu-kind
+          flavor: ci_light
           context:
             - main-context
 
