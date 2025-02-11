@@ -3,10 +3,10 @@ version: 2.1
 
 # define the parameters from the setup config.
 parameters:
-  megalinter:
+  build-fedora-image:
     type: boolean
     default: false
-  build-fedora-image:
+  build-circleci-node-image:
     type: boolean
     default: false
 
@@ -14,10 +14,11 @@ jobs:
   no-updates:
     docker:
       - image: cimg/base:stable
+    resource_class: kubearchitect/hetzner-ubuntu-kind
     steps:
       - run: echo "No updates have been made"
 
 workflows:
   no-update-workflow:
     jobs:
-      - no-updates
+      - no-updates:

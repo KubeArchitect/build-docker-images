@@ -11,8 +11,8 @@ parameters:
     default: false
 
 jobs:
-  build-fedora-image:
-    working_directory: gh-actions/
+  build-circleci-node-image:
+    working_directory: node/
     docker:
       - image: cimg/base:stable
         auth:
@@ -20,7 +20,7 @@ jobs:
           password: $DOCKERHUB_PASSWORD
     environment:
       DOCKER_VERSION_TAG: v1.0.0
-      DOCKER_IMAGE_NAME: gh-actions-fedora
+      DOCKER_IMAGE_NAME: circleci-pnpm
       GITHUB_USERNAME: relativesure
     steps:
       - checkout
@@ -40,7 +40,8 @@ jobs:
             docker push ghcr.io/$GITHUB_USERNAME/$DOCKER_IMAGE_NAME:$DOCKER_VERSION_TAG-$CIRCLE_BUILD_NUM
 
 workflows:
-  build-fedora-image-workflow:
+  build-circleci-node-image-workflow:
     jobs:
-      - build-fedora-image:
-          context: main-context
+      - build-circleci-node-image:
+          context:
+            - main-context
