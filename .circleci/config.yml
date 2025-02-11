@@ -19,6 +19,7 @@ workflows:
   generate-config:
     jobs:
       - megalinter/run:
+          name: run-ml
           resource_class: kubearchitect/hetzner-ubuntu-kind
           context:
             - main-context
@@ -29,6 +30,8 @@ workflows:
           config-path: .circleci/no-updates.yml
           resource_class: kubearchitect/hetzner-ubuntu-kind
           tag: "3.9"
+          requires:
+            - run-ml
           mapping: |
             gh-actions/.* build-fedora-image true .circleci/fedora-actions.yml
             .circleci/fedora-actions.yml build-fedora-image true .circleci/fedora-actions.yml
