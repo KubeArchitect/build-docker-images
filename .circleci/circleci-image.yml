@@ -29,20 +29,16 @@ jobs:
           docker_layer_caching: true
       - run:
           name: Build Docker image
-          command: docker build -t ghcr.io/$GITHUB_ORG/$DOCKER_IMAGE_NAME:$DOCKER_VERSION_TAG-$CIRCLE_BUILD_NUM $CIRCLE_WORKING_DIRECTORY
+          command: docker build -t ghcr.io/$GITHUB_ORG/$DOCKER_IMAGE_NAME:$DOCKER_VERSION_TAG $CIRCLE_WORKING_DIRECTORY
       - run:
           name: List Docker image
           command: docker image ls
-      - when:
-          condition:
-            equal: [ main, << pipeline.git.branch >> ]
-          steps:
-            - run:
-                name: Push application Docker image
-                command: |
-                  # RelativeSure Classic Token
-                  echo $RS_GH_PACKAGES_TOKEN_v2 | docker login ghcr.io -u $GITHUB_ORG --password-stdin
-                  docker push ghcr.io/$GITHUB_ORG/$DOCKER_IMAGE_NAME:$DOCKER_VERSION_TAG
+      - run:
+          name: Push application Docker image
+          command: |
+            # RelativeSure Classic Token
+            echo $RS_GH_PACKAGES_TOKEN_v2 | docker login ghcr.io -u $GITHUB_ORG --password-stdin
+            docker push ghcr.io/$GITHUB_ORG/$DOCKER_IMAGE_NAME:$DOCKER_VERSION_TAG
 
 workflows:
   build-circleci-node-image-workflow:
