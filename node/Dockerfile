@@ -1,4 +1,4 @@
-FROM node:23-alpine@sha256:70eca392e3d52cb7d133b52d52e8600d8c410a5eaee6105c11324b28868f9ac9 AS base
+FROM node:23-alpine@sha256:b33cf709cec003818c2eb40d3026d7611eefd52268a46e052b473f7f6dc90c9c AS base
 
 # Link Dockerfile to KubeArchitect/build-docker-images repo
 LABEL org.opencontainers.image.source=https://github.com/KubeArchitect/build-docker-images.git
