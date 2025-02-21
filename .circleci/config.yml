@@ -20,7 +20,6 @@ workflows:
     jobs:
       - megalinter/run:
           name: run-ml
-          resource_class: kubearchitect/hetzner-ubuntu-kind
           flavor: ci_light
           persist_megalinter_reports: true
           run_git_operations: true
