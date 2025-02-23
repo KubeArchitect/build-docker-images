@@ -30,7 +30,6 @@ workflows:
           # Examples: https://github.com/CircleCI-Public/dynamic-configuration-examples/tree/generate-config-file-main
           base-revision: main
           config-path: .circleci/no-updates.yml
-          resource_class: kubearchitect/hetzner-ubuntu-kind
           tag: "3.9"
           requires:
             - run-ml
