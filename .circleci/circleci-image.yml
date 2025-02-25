@@ -33,7 +33,7 @@ jobs:
             TAG=$DOCKER_VERSION_TAG.$CIRCLE_BUILD_NUM
             docker build -t $DOCKERHUB_USERNAME/$DOCKER_IMAGE_NAME:$TAG -t $DOCKERHUB_USERNAME/$DOCKER_IMAGE_NAME:latest $CIRCLE_WORKING_DIRECTORY
             echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
-            docker push $DOCKERHUB_USERNAME/$DOCKER_IMAGE_NAME:$TAG
+            docker push --all-tags $DOCKERHUB_USERNAME/$DOCKER_IMAGE_NAME
 
 workflows:
   build-circleci-node-image-workflow:
