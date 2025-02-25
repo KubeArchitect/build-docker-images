@@ -12,7 +12,7 @@ ENV PATH="$PNPM_HOME:$PATH"
 RUN apk -U upgrade
 
 # Install CircleCI required packages
-RUN apk install git openssh tar gzip ca-certificates
+RUN apk add --no-cache git openssh tar gzip ca-certificates
 
 # RUN apk add --no-cache unzip 
 RUN npm install --global corepack@latest
