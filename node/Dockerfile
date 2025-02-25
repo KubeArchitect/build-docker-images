@@ -1,4 +1,4 @@
-FROM node:23-alpine@sha256:0a29d8a047149079bf48dab598f287815e39867d547e8f3935cfdece0a4379cc AS base
+FROM node:23 AS base
 
 # Link Dockerfile to KubeArchitect/build-docker-images repo
 LABEL org.opencontainers.image.source https://github.com/KubeArchitect/build-docker-images
@@ -9,7 +9,7 @@ ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 
 # Upgrade packages and install required packages
-RUN apk -U upgrade && apk add --no-cache git openssh tar gzip ca-certificates sudo dpkg bash
+RUN apt update && apt -y upgrade && apt install git openssh tar gzip ca-certificates sudo dpkg bash
 
 # RUN apk add --no-cache unzip 
 RUN npm install --global corepack@latest
