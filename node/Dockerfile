@@ -8,6 +8,12 @@ LABEL description="Docker image for pnpm package manager"
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 
+# Upgrade packages
+RUN apk -U upgrade
+
+# Install CircleCI required packages
+RUN apk install git openssh tar gzip ca-certificates
+
 # RUN apk add --no-cache unzip 
 RUN npm install --global corepack@latest
 RUN corepack enable pnpm
