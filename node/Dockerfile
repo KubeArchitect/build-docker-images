@@ -18,6 +18,9 @@ RUN corepack use pnpm@latest-10
 
 RUN node --version \
 && npm --version \
-&& pnpm --version 
+&& pnpm --version
+
+USER node
+
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["node"]
