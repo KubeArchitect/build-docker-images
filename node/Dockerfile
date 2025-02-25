@@ -16,6 +16,9 @@ RUN npm install --global corepack@latest
 RUN corepack enable pnpm
 RUN corepack use pnpm@latest-10
 
+# setup sudo as nonroot
+RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
 RUN node --version \
 && npm --version \
 && pnpm --version
