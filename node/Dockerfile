@@ -9,7 +9,7 @@ ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 
 # Upgrade packages and install required packages
-RUN apt update && apt -y upgrade && apt install git ssh tar gzip ca-certificates sudo dpkg bash
+RUN apt update && apt -y upgrade && apt -y install git ssh tar gzip ca-certificates sudo dpkg bash
 
 # RUN apk add --no-cache unzip 
 RUN npm install --global corepack@latest
