@@ -1,4 +1,4 @@
-FROM fedora:42@sha256:70d5934128fe1b1abc97750dc358dad9cf499c11059f0ed720872fedcc4880d1
+FROM fedora:46@sha256:a9bab18d01cf2c2cf62f3e79c72623405bce14ac062995cc6651a3073c802e41
 
 # Link Dockerfile to RelativeSure/build-gh-actions-image repo
 LABEL org.opencontainers.image.source https://github.com/KubeArchitect/build-docker-images.git
