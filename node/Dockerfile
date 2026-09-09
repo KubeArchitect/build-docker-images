@@ -1,4 +1,4 @@
-FROM node:23@sha256:990d0ab35ae15d8a322ee1eeaf4f7cf14e367d3d0ee2f472704b7b3df4c9e7c1 AS base
+FROM node:24@sha256:6dac556d980b7f0e5498d08f08cee0ca67798b4ad6c23964a9214920e67758d0 AS base
 
 # Link Dockerfile to KubeArchitect/build-docker-images repo
 LABEL org.opencontainers.image.source https://github.com/KubeArchitect/build-docker-images
